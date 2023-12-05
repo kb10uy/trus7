@@ -1,0 +1,3 @@
+[submodule "tr7-sys/tr7"]
+	path = tr7-sys/tr7
+	url = https://gitlab.com/jobol/tr7
