@@ -1,9 +1,9 @@
 fn main() {
     cc::Build::new()
-        .file("tr7.c")
-        .include("./")
-        .define("VERSION", "\"1.0.8\"")
-        .define("ssize_t", "intptr_t")
         .std("c11")
+        .flag_if_supported("-FC")
+        .define("VERSION", "\"1.0.8\"")
+        .file("./tr7/tr7.c")
+        .include("./tr7")
         .compile("tr7");
 }
