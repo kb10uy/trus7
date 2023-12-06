@@ -22,8 +22,12 @@ name = "tr7-sys"
 version = "0.1.0"
 dependencies = [
  "cc",
+ "libc",
 ]
 
 [[package]]
 name = "trus7"
 version = "0.1.0"
+dependencies = [
+ "tr7-sys",
+]

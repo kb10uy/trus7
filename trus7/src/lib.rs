@@ -1,14 +1,32 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+use std::ptr::null;
+
+use tr7_sys::{tr7_engine_create, tr7_engine_destroy, tr7_engine_t};
+
+pub struct Engine {
+    engine: tr7_engine_t,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+impl Engine {
+    pub fn new() -> Engine {
+        let engine = unsafe { tr7_engine_create(null()) };
+        if engine.is_null() {
+            panic!("failed to initialize engine");
+        }
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+        Engine { engine }
+    }
+}
+
+impl Default for Engine {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl Drop for Engine {
+    fn drop(&mut self) {
+        unsafe {
+            tr7_engine_destroy(self.engine);
+        }
     }
 }
