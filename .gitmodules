@@ -1,6 +1,0 @@
-[submodule "tr7-sys/tr7"]
-	path = tr7-sys/tr7
-	url = https://gitlab.com/jobol/tr7
-[submodule "tr7"]
-	path = tr7
-	url = https://gitlab.com/kb10uy/tr7
